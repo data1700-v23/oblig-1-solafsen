@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title> Fremmed kino </title>
+    <script src="kinobilletter.js"></script>
+
+</head>
+
+<body>
+
+    <h1> Bestilling av kinobilletter </h1>
+
+    <form>
+
+        <!-- Filmvalg med 7 ulike filmer -->
+
+        <div>
+            <label for="inp_filmvalg"> Velg film: </label>
+            <select id="inp_filmvalg" onchange="leggTilFilm(this.value)">
+                <option value=""> Velg film her </option>
+                <option> Krigseileren ( 2t 30 min ) </option>
+                <option> Parasite ( 2 t 12 min ) </option>
+                <option> Little Forest: Winter/Spring ( 2t ) </option>
+                <option> Only Yesterday ( 1t 58 min ) </option>
+                <option> The Nun ( 1t 36 min ) </option>
+                <option> The Truman Show ( 1t 43 min ) </option>
+                <option> One Piece Film: Red ( 1t 55 min ) </option>
+            </select>
+            <span id="feilmelding-filmvalg" style="color: red"></span>
+        </div>
+
+        <!-- Antall billetter til bestilling -->
+
+        <div>
+            <label for="inp_antall"> Antall </label>
+            <input type="number" id="inp_antall" min="1" max="30" onchange="leggTilBillett(this.value)">
+            <span id="feilmelding-antall" style="color: red"></span>
+        </div>
+
+        <!-- Kontakt info -->
+
+        <div>
+
+            <div>
+                <label for="inp_fornavn"> Fornavn </label>
+                <input type="text" id="inp_fornavn" onchange="leggTilFornavn(this.value)">
+                <span id="feilmelding-fornavn" style="color: red"></span>
+            </div>
+
+            <div>
+                <label for="inp_etternavn"> Etternavn </label>
+                <input type="text" id="inp_etternavn" onchange="leggTilEtternavn(this.value)">
+                <span id="feilmelding-etternavn" style="color: red"></span>
+            </div>
+
+            <div>
+                <label for="inp_telefonnr"> Telefonnr </label>
+                <input type="text" id="inp_telefonnr" onchange="leggTilTelefonnr(this.value)">
+                <span id="feilmelding-telefonnr" style="color: red"></span>
+            </div>
+
+            <div>
+                <label for="inp_epost"> E-post </label>
+                <input type="text" id="inp_epost" onchange="leggTilEpost(this.value)">
+                <span id="feilmelding-epost" style="color: red"></span>
+            </div>
+
+        </div>
+
+        <!-- Kjøpeknappen for kjøp av kinobilletter -->
+
+        <div>
+            <button type="button" id="kjopKnapp" onclick="kjopBillett()"> Kjøp billett </button>
+        </div>
+
+    </form>
+
+    <!-- Vis billetter som ble gjennomført etter kjøpknappen -->
+
+    <div>
+        <h2> Alle billetter </h2>
+        <p id="VisBilletter"></p>
+
+        <!-- Sletteknappen for å slette alle billetter som ble bestilt -->
+
+        <div>
+            <button type="button" id="slettKnapp" onclick="SlettBilletter()"> Slett alle billettene </button>
+        </div>
+    </div>
+
+</body>
+</html>
