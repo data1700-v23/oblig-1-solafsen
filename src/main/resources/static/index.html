@@ -11,83 +11,86 @@
 
 <body>
 
-    <h1> Bestilling av kinobilletter </h1>
+    <div style=" max-width: 100%; display: grid; grid-template-rows: 1fr auto; gap: 20px;">
 
-    <form>
+        <h1> Bestilling av kinobilletter </h1>
 
-        <!-- Filmvalg med 7 ulike filmer -->
+        <form style="max-width: 800px;">
 
-        <div>
-            <label for="inp_filmvalg"> Velg film: </label>
-            <select id="inp_filmvalg" onchange="leggTilFilm(this.value)">
-                <option value=""> Velg film her </option>
-                <option> Krigseileren ( 2t 30 min ) </option>
-                <option> Parasite ( 2 t 12 min ) </option>
-                <option> Little Forest: Winter/Spring ( 2t ) </option>
-                <option> Only Yesterday ( 1t 58 min ) </option>
-                <option> The Nun ( 1t 36 min ) </option>
-                <option> The Truman Show ( 1t 43 min ) </option>
-                <option> One Piece Film: Red ( 1t 55 min ) </option>
-            </select>
-            <span id="feilmelding-filmvalg" style="color: red"></span>
-        </div>
+            <!-- Filmvalg med 7 ulike filmer -->
 
-        <!-- Antall billetter til bestilling -->
-
-        <div>
-            <label for="inp_antall"> Antall </label>
-            <input type="number" id="inp_antall" min="1" max="30" onchange="leggTilBillett(this.value)">
-            <span id="feilmelding-antall" style="color: red"></span>
-        </div>
-
-        <!-- Kontakt info -->
-
-        <div>
-
-            <div>
-                <label for="inp_fornavn"> Fornavn </label>
-                <input type="text" id="inp_fornavn" onchange="leggTilFornavn(this.value)">
-                <span id="feilmelding-fornavn" style="color: red"></span>
+            <div style="margin-top: 20px;">
+                <label for="inp_filmvalg"> Velg film: </label>
+                <select id="inp_filmvalg" onchange="leggTilFilm(this.value)" style="width: 160px; margin-left: 5px;">
+                    <option value=""> Velg film her </option>
+                    <option> Krigseileren ( 2t 30 min ) </option>
+                    <option> Parasite ( 2 t 12 min ) </option>
+                    <option> Little Forest: Winter/Spring ( 2t ) </option>
+                    <option> Only Yesterday ( 1t 58 min ) </option>
+                    <option> The Nun ( 1t 36 min ) </option>
+                    <option> The Truman Show ( 1t 43 min ) </option>
+                    <option> One Piece Film: Red ( 1t 55 min ) </option>
+                </select>
+                <span id="feilmelding-filmvalg" style="color: red; margin-left: 10px;"></span>
             </div>
 
-            <div>
-                <label for="inp_etternavn"> Etternavn </label>
-                <input type="text" id="inp_etternavn" onchange="leggTilEtternavn(this.value)">
-                <span id="feilmelding-etternavn" style="color: red"></span>
+            <!-- Antall billetter til bestilling -->
+
+            <div style="margin-top: 20px; margin-bottom: 20px;">
+                <label for="inp_antall"> Antall </label>
+                <input type="number" id="inp_antall" min="1" max="30" onchange="leggTilBillett(this.value)" style="margin-left: 5px;">
+                <span id="feilmelding-antall" style="color: red; margin-left: 10px;"></span>
             </div>
 
-            <div>
-                <label for="inp_telefonnr"> Telefonnr </label>
-                <input type="text" id="inp_telefonnr" onchange="leggTilTelefonnr(this.value)">
-                <span id="feilmelding-telefonnr" style="color: red"></span>
+            <!-- Kontakt info -->
+
+            <div style="display: grid; grid-template-columns: 1fr; grid-template-rows: repeat(4, 1fr); gap: 6px;">
+
+                <div style="grid-row: 1/2; grid-column: 1/2;">
+                    <label for="inp_fornavn" style="margin-right: 20px;"> Fornavn </label>
+                    <input type="text" id="inp_fornavn" onchange="leggTilFornavn(this.value)" >
+                    <span id="feilmelding-fornavn" style="color: red; margin-left: 10px;"></span>
+                </div>
+
+                <div style="grid-row: 2/3; grid-column: 1/2;">
+                    <label for="inp_etternavn" style="margin-right: 10px;"> Etternavn </label>
+                    <input type="text" id="inp_etternavn" onchange="leggTilEtternavn(this.value)">
+                    <span id="feilmelding-etternavn" style="color: red; margin-left: 10px;"></span>
+                </div>
+
+                <div style="grid-row: 3/4; grid-column: 1/2;">
+                    <label for="inp_telefonnr" style="margin-right: 10px;"> Telefonnr </label>
+                    <input type="text" id="inp_telefonnr" onchange="leggTilTelefonnr(this.value)">
+                    <span id="feilmelding-telefonnr" style="color: red; margin-left: 10px;"></span>
+                </div>
+
+                <div style="grid-row: 4/5; grid-column: 1/2;">
+                    <label for="inp_epost" style="margin-right: 30px;"> E-post </label>
+                    <input type="text" id="inp_epost" onchange="leggTilEpost(this.value)">
+                    <span id="feilmelding-epost" style="color: red; margin-left: 10px;"></span>
+                </div>
+
             </div>
 
+            <!-- Kjøpeknappen for kjøp av kinobilletter -->
+
             <div>
-                <label for="inp_epost"> E-post </label>
-                <input type="text" id="inp_epost" onchange="leggTilEpost(this.value)">
-                <span id="feilmelding-epost" style="color: red"></span>
+                <button type="button" id="kjopKnapp" onclick="kjopBillett()" style="width: 100px; margin-top: 30px;"> Kjøp billett </button>
             </div>
 
-        </div>
+        </form>
 
-        <!-- Kjøpeknappen for kjøp av kinobilletter -->
+        <!-- Vis billetter som ble gjennomført etter kjøpknappen -->
 
         <div>
-            <button type="button" id="kjopKnapp" onclick="kjopBillett()"> Kjøp billett </button>
-        </div>
+            <h2> Alle billetter </h2>
+            <p id="VisBilletter"></p>
 
-    </form>
+            <!-- Sletteknappen for å slette alle billetter som ble bestilt -->
 
-    <!-- Vis billetter som ble gjennomført etter kjøpknappen -->
-
-    <div>
-        <h2> Alle billetter </h2>
-        <p id="VisBilletter"></p>
-
-        <!-- Sletteknappen for å slette alle billetter som ble bestilt -->
-
-        <div>
-            <button type="button" id="slettKnapp" onclick="SlettBilletter()"> Slett alle billettene </button>
+            <div>
+                <button type="button" id="slettKnapp" onclick="SlettBilletter()"> Slett alle billettene </button>
+            </div>
         </div>
     </div>
 

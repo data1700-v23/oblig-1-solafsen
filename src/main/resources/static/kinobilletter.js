@@ -56,7 +56,7 @@ function kjopBillett() {
         document.getElementById("feilmelding-fornavn").innerText = "Må skrive noe inn i fornavnet";
         feil++;
     } else {
-        document.getElementById("feilmelding-fornavn").innterText = "";
+        document.getElementById("feilmelding-fornavn").innerText = "";
     }
 
     if (etternavn === undefined) { // Feilmelding for etternavn
@@ -112,7 +112,7 @@ function kjopBillett() {
     document.getElementById("inp_fornavn").value="";
     document.getElementById("inp_etternavn").value="";
     document.getElementById("inp_telefonnr").value="";
-    document.getElementById("inp_epos").value="";
+    document.getElementById("inp_epost").value="";
 
     // Tømme verdier for variablene etter at den ble registrert
 
