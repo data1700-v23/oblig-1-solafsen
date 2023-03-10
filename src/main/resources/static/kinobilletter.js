@@ -90,17 +90,22 @@ function kjopBillett() {
                     Fornavn: fornavn, Etternavn: etternavn,
                     Telefonnummer: telefonnr, Epost: epost }); // Legger til kunde (liste) inn i arrayet Billetter
 
-    // Skriv ut alle billetter
+    // Skriv ut alle billetter (en kunde per rad)
 
-    let utskrift = "";
+    let utskrift = "<table><tr>" +
+            "<th> Film </th><th> Antall </th><th> Fornavn </th><th> Etternavn </th><th> Telefonnr </th><th> E-post </th>" +
+            "</tr>";
 
-    for (let i of billetter) {
-        utskrift += "-------------------------<br>" +
-                    "<b> Film: </b>" + i.Film + "<br>" +
-                    "<b> Antall: </b>" + i.AntBilletter + "<br>" +
-                    "<b> Navn: </b>" + i.Fornavn + " " + i.Etternavn + "<br>" +
-                    "<b> Telefonnr: </b>" + i.Telefonnummer + "<br>" +
-                    "<b> E-post: </b>" + i.Epost + "<br>";
+    for (let b of billetter) {
+
+        utskrift += "<tr>";
+
+        utskrift += "<td>" + b.Film + "</td><td>" + b.AntBilletter + "</td><td>" +
+        b.Fornavn + "</td><td>" + b.Etternavn + "</td><td>" +
+        b.Telefonnummer + "</td><td>" + b.Epost + "</td>";
+
+        utskrift += "</tr>";
+
     }
 
     document.getElementById("VisBilletter").innerHTML = utskrift;
